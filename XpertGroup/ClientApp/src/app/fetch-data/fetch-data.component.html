@@ -1,0 +1,48 @@
+<h1>Cube sumation</h1>
+<p>this example is autosended by the contructor. please try you´re own cases.</p>
+<p>
+  1 <br />
+  4 5 <br />
+  UPDATE 2 2 2 4 <br />
+  QUERY 1 1 1 3 3 3 <br />
+  UPDATE 1 1 1 23 <br />
+  QUERY 2 2 2 4 4 4 <br />
+  QUERY 1 1 1 3 3 3 <br />
+</p>
+
+
+<div class="navbar-header">
+  <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+      <div class="comment">
+        <textarea type="text" placeholder="Input" class="textinput" formControlName="input"></textarea>
+      </div>
+      <div *ngIf="inputForm.controls['input'].errors?.required" >
+        input is required.
+      </div>
+    </div>
+    <div class="container">
+      <div class="comment">
+        <button type="submit">Submit</button>
+      </div>
+      </div>
+       
+  </form>
+
+</div>
+
+  <p *ngIf="!responses"><em>Loading...</em></p>
+  <table class='table' *ngIf="responses">
+    <thead>
+      <tr>
+        <th>Output</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let response of responses">
+        <td>{{ response }}</td>
+
+      </tr>
+    </tbody>
+  </table>
